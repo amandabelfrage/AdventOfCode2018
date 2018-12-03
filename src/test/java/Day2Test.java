@@ -91,4 +91,41 @@ public class Day2Test {
 
         assertEquals(9, result);
     }
+
+    @Test
+    public void stringsDifferOnAll(){
+        List<String> input = Arrays.asList("abcd", "dcba", "efgh");
+
+        String result = Day2.findCommonLetters(input);
+
+        assertEquals(result, "");
+    }
+
+    @Test
+    public void stringsDifferOnTwo(){
+        List<String> input = Arrays.asList("abcde", "abfhe", "fhcde", "afche");
+
+        String result = Day2.findCommonLetters(input);
+
+        assertEquals(result, "");
+    }
+
+    @Test
+    public void stringsDifferOnOneOrMany(){
+        List<String> input = Arrays.asList("abcde", "namhj", "kejop", "abhde");
+
+        String result = Day2.findCommonLetters(input);
+
+        assertEquals(result, "abde");
+    }
+
+    @Test
+    public void stringsDifferOnOne(){
+        String string1 = "abcde";
+        String string2 = "agcde";
+
+        String result = Day2.compareCharByChar(string1, string2);
+
+        assertEquals(result, "acde");
+    }
 }

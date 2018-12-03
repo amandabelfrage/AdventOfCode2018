@@ -12,11 +12,44 @@ public class Day2 {
     public static void performDay2(){
         try {
             List<String> input = Helper.readWholeFile(FILEPATH);
-            int result = createChecksum(input);
-            System.out.println("Result: " + result);
+            int checksum = createChecksum(input);
+            System.out.println("Checksum: " + checksum);
+            String commonLetters = findCommonLetters(input);
+            System.out.println("Common Letters: " + commonLetters);
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    static String findCommonLetters(List<String> input){
+        String commonLetters = "";
+        outerloop:
+        for (int i = 0; i < (input.size()-1); i++){
+            String line1 = input.get(i);
+            for(int j = i+1; j < input.size(); j++){            
+                String line2 = input.get(j);
+                commonLetters = compareCharByChar(line1, line2);
+                if(commonLetters != "")
+                    break outerloop;
+            }
+        }
+        return commonLetters;
+    }
+
+    static String compareCharByChar(String line1, String line2){
+        char[] charactersLine1 = line1.toCharArray();
+        char[] charactersLine2 = line2.toCharArray();
+        int unequalCharCounter = 0;
+        String commonLetters = "";
+        for (int i = 0; i < charactersLine1.length; i++){
+            if(charactersLine1[i] == (charactersLine2[i])){
+                commonLetters += charactersLine1[i];
+            }else
+                unequalCharCounter++;
+        }
+        if(unequalCharCounter != 1)
+            commonLetters = "";
+        return commonLetters;
     }
 
     static int createChecksum(List<String> input){
