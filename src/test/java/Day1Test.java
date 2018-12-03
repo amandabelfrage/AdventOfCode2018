@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -28,7 +29,7 @@ public class Day1Test {
         int answer = Day1.findRepeatedFrequency(input);
 
         // THEN
-        assertEquals(10, answer);
+        Assert.assertEquals(10, answer);
     }
 
     @Test

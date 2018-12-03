@@ -9,7 +9,7 @@ public class Day1 {
 
     public static void Day1_out () {
         try{
-            List<String> input = readWholeFile(FILEPATH);
+            List<String> input = Helper.readWholeFile(FILEPATH);
             int frequency = findRepeatedFrequency(input);
             System.out.println("First frequency reached: " + frequency);
         } catch (IOException e) {
@@ -37,18 +37,7 @@ public class Day1 {
         return frequency;
     }
 
-    private static List<String> readWholeFile(String filePath) throws IOException {
-        File f = new File(filePath);
-        List<String> inputToRepeat = new ArrayList<>();
 
-        try (BufferedReader b = new BufferedReader(new FileReader(f))) {
-            String readline;
-            while ((readline = b.readLine()) != null) {
-                inputToRepeat.add(readline);
-            }
-        }
-        return inputToRepeat;
-    }
 
     private static boolean frequencyIsRepeated(List<Integer> numbersReached, int frequency) {
         return numbersReached.contains(frequency);
