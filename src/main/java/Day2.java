@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,34 +21,34 @@ public class Day2 {
     }
 
     static String findCommonLetters(List<String> input){
-        String commonLetters = "";
-        outerloop:
         for (int i = 0; i < (input.size()-1); i++){
             String line1 = input.get(i);
-            for(int j = i+1; j < input.size(); j++){            
+            for(int j = i+1; j < input.size(); j++){
                 String line2 = input.get(j);
-                commonLetters = compareCharByChar(line1, line2);
+                String commonLetters = getStringWhereOnlyOneLetterDiffers(line1, line2);
                 if(commonLetters != "")
-                    break outerloop;
+                    return commonLetters;
             }
         }
-        return commonLetters;
+        return "";
     }
 
-    static String compareCharByChar(String line1, String line2){
+    static String getStringWhereOnlyOneLetterDiffers(String line1, String line2){
         char[] charactersLine1 = line1.toCharArray();
         char[] charactersLine2 = line2.toCharArray();
         int unequalCharCounter = 0;
-        String commonLetters = "";
+        StringBuilder commonLetters = new StringBuilder();
+
         for (int i = 0; i < charactersLine1.length; i++){
             if(charactersLine1[i] == (charactersLine2[i])){
-                commonLetters += charactersLine1[i];
-            }else
+                commonLetters.append(charactersLine1[i]);
+            }else {
                 unequalCharCounter++;
+                if (unequalCharCounter > 1)
+                    break;
+            }
         }
-        if(unequalCharCounter != 1)
-            commonLetters = "";
-        return commonLetters;
+        return unequalCharCounter == 1 ? commonLetters.toString() : "";
     }
 
     static int createChecksum(List<String> input){

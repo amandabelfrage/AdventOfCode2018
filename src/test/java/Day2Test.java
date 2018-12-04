@@ -1,4 +1,3 @@
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.*;
@@ -98,7 +97,7 @@ public class Day2Test {
 
         String result = Day2.findCommonLetters(input);
 
-        assertEquals(result, "");
+        assertEquals("", result);
     }
 
     @Test
@@ -107,7 +106,7 @@ public class Day2Test {
 
         String result = Day2.findCommonLetters(input);
 
-        assertEquals(result, "");
+        assertEquals("", result);
     }
 
     @Test
@@ -116,7 +115,7 @@ public class Day2Test {
 
         String result = Day2.findCommonLetters(input);
 
-        assertEquals(result, "abde");
+        assertEquals("abde", result);
     }
 
     @Test
@@ -124,8 +123,8 @@ public class Day2Test {
         String string1 = "abcde";
         String string2 = "agcde";
 
-        String result = Day2.compareCharByChar(string1, string2);
+        String result = Day2.getStringWhereOnlyOneLetterDiffers(string1, string2);
 
-        assertEquals(result, "acde");
+        assertEquals("acde", result);
     }
 }
