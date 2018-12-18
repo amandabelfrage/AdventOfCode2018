@@ -10,6 +10,7 @@ public class Day2 {
 
     public static void performDay2(){
         try {
+            System.out.println("**** DAY 2 ****");
             List<String> input = Helper.readWholeFile(FILEPATH);
             int checksum = createChecksum(input);
             System.out.println("Checksum: " + checksum);

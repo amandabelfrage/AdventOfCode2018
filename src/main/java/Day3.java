@@ -9,6 +9,8 @@ public class Day3 {
 
     public static void performDay3() {
         try {
+            System.out.println("**** DAY 3 ****");
+
             List<String> input = Helper.readWholeFile(FILEPATH);
             List[][] grid = createGrid(input);
             List<String> claimIds = updateGrid(grid, input);
@@ -95,7 +97,7 @@ public class Day3 {
         for (int x = 0; x < xCorner; x++) {
             for (int y = 0; y < yCorner; y++) {
                 List<String> coordValues = grid[x][y];
-                if (grid[x][y] != null) {
+                if (coordValues != null) {
                     for (String elem : coordValues) {
                         if (coordValues.size() > 1) {
                             if (!overlaps.contains(elem)) {

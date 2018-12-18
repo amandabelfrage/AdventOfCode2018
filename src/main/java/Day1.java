@@ -7,8 +7,9 @@ public class Day1 {
 
     private static final String FILEPATH = "src/main/resources/Input_day1.txt";
 
-    public static void Day1_out () {
+    public static void performDay1 () {
         try{
+            System.out.println("**** DAY 1 ****");
             List<String> input = Helper.readWholeFile(FILEPATH);
             int frequency = findRepeatedFrequency(input);
             System.out.println("First frequency reached: " + frequency);
