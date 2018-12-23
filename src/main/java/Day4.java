@@ -21,7 +21,7 @@ public class Day4 {
             int bestMinuteOfMostTiredGuard = getMinute(sleepingScheme.get(guardId))[0];
             int bestMinute = getMinuteForEveryGuard(sleepingScheme);
             System.out.println("Strategy 1 product: " + Integer.parseInt(guardId.substring(1))*bestMinuteOfMostTiredGuard);
-            System.out.println("Strategy 2 product: " + bestMinute);
+            System.out.println("Strategy 2 product: " + bestMinute + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -140,11 +140,6 @@ public class Day4 {
     }
 
     static String getGuardId(String line){
-        String[] splittedLine = line.split(" ");
-        return splittedLine[1];
-    }
-
-    static String getTimeStamp(String line){
         String[] splittedLine = line.split(" ");
         return splittedLine[1];
     }

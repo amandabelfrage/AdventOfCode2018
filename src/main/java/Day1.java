@@ -1,7 +1,8 @@
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Day1 {
 
@@ -12,16 +13,16 @@ public class Day1 {
             System.out.println("**** DAY 1 ****");
             List<String> input = Helper.readWholeFile(FILEPATH);
             int frequency = findRepeatedFrequency(input);
-            System.out.println("First frequency reached: " + frequency);
+            System.out.println("First frequency reached: " + frequency + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     static int findRepeatedFrequency(List<String> input) {
-        List<Integer> numbersReached = new ArrayList<>();
+        Map<Integer, Integer> numbersReached = new HashMap<>();
         int frequency = 0;
-        numbersReached.add(0);
+        numbersReached.put(0, 1);
         boolean foundFrequency = false;
 
         while (!foundFrequency) {
@@ -32,7 +33,7 @@ public class Day1 {
                     foundFrequency = true;
                     break;
                 }
-                numbersReached.add(frequency);
+                numbersReached.put(frequency, 1);
             }
         }
         return frequency;
@@ -40,7 +41,7 @@ public class Day1 {
 
 
 
-    private static boolean frequencyIsRepeated(List<Integer> numbersReached, int frequency) {
-        return numbersReached.contains(frequency);
+    private static boolean frequencyIsRepeated(Map<Integer, Integer> numbersReached, int frequency) {
+        return numbersReached.containsKey(frequency);
     }
 }

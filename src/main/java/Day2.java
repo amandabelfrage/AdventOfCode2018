@@ -15,7 +15,7 @@ public class Day2 {
             int checksum = createChecksum(input);
             System.out.println("Checksum: " + checksum);
             String commonLetters = findCommonLetters(input);
-            System.out.println("Common Letters: " + commonLetters);
+            System.out.println("Common Letters: " + commonLetters + "\n");
         }catch (IOException e){
             e.printStackTrace();
         }

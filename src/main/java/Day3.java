@@ -21,7 +21,7 @@ public class Day3 {
             String idNoOverlap = getIdNoOverlap(claimIds, overlaps);
 
             System.out.println("The number of square inches claimed by two or more: " + numberOfSquareInches);
-            System.out.println("The id of the one that does not overlap: " + idNoOverlap);
+            System.out.println("The id of the one that does not overlap: " + idNoOverlap + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
